@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Callout from '../components/Callout.astro';
 ---
 
 <!doctype html>
@@ -13,38 +14,55 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
+			<Callout type="warning" title='Excuse the mess...'>
+				This website is currently being created! Wordings, pages, and design is likely incomplete and subject to change :)
+			</Callout>
+
+			<h1>🤖 Who <i>"we"</i> are</h1>
 			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
+				BotSuite is really just me, John, making bots from my apartment in Uppsala, Sweden 🇸🇪.
+				I started out making Discord applications <small>(then known as bots)</small> sometime in 2018 as a way to bring whimsy to some servers I shared with friends.
+				Through making these silly Discord bots I learned how to use the API to create stuff that people might actually find usefull...
 			</p>
+
 			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
+				Meme/music/game/moderation focused bots is a field that is already served by thousands of great bots so I decided to focus on providing utility focused bots.
+				The first bot I made that got actual users beside myself and friends was a bot called <b>Oppy</b> that allowed users to create and share server templates. When Discord launched native <a href="https://support.discord.com/hc/en-us/articles/360041033511-Server-Templates">Server Templates</a> sometime in 2020 I had to admit defeat and move on.
 			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
+
 			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
+				Discord launched <a href="https://support.discord.com/hc/en-us/articles/4403205878423-Threads-FAQ">threads</a> in 2021, which acts as <i>temporary</i> spaces of discussions created within another text channel.
+				Threads are configured to get hidden <small>(archived)</small> after a certain amount of time has passed, ranging from a few hours to a week. 
+				I created <a href="https://threadwatcher.xyz">Thread-Watcher</a> as an experiment to see if I could manage to get these threads to never get hidden, no matter the threads' activity. To my surprise, I could, and even more surprising to me was that others also wanted this.
 			</p>
+
 			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
+				Thread-Watcher quickly grew from a handfull of servers to a few hundreds, then to a few thousands, and is now standing at 23 000 servers and counting!
+				Along the road it's had to adapt to growing pains from an architecture designed around an expected usage far exceeded, fundamental changes to how Discord threads operate, and frequent trial and error.
+				Many years later and Thread-Watcher is standing stronger than ever, helping thousands of communities keep their threads organized.
+			</p>
+
+			<p>
+				But why "BotSuite" if there's just one bot? <br/>
+				I like staying busy! While <a href="https://threadwatcher.xyz">Thread-Watcher</a> is the bot I'm currently putting all my focus into, I can see myself branching out to additional exciting projects.
+				It felt "correct" to have some sort of umbrella name for all my projects to tie them together, and I landed on BotSuite.
 			</p>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.thing {
+		background-color: blue;
+		min-height: 350px;
+		background-size: cover;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+
+		--border: 1px solid rgba(255, 255, 255, 0.2);
+
+		border-top: var(--border);
+		border-bottom: var(--border);
+	}
+</style>

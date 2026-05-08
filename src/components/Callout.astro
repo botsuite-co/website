@@ -1,0 +1,60 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+	type: "info" | "error" | "warning" | "success";
+    title: string;
+}
+
+const { type, title } = Astro.props;
+
+type CalloutTypes = Props["type"]
+
+const IconMap: Record<CalloutTypes, string> = {
+    "warning": "mdi:shield-warning",
+    "error": "mdi:error",
+    "success": "mdi:success-circle",
+    "info": "mdi:information"
+}
+
+const icon_name = IconMap[type]
+
+---
+
+<div class={`callout_${type}`}>
+    <span class="head">
+        <Icon name={icon_name} />
+        {title}
+    </span>
+    <slot />
+</div>
+
+<style>
+
+    .callout_warning {
+        --warning: rgb(189, 189, 35);
+        --bg_clr: color-mix(in srgb, var(--warning) 30%, transparent);
+        --border: 1px solid color-mix(in srgb, var(--warning) 60%, transparent);
+        --head_clr: var(--warning);
+    }
+
+    div {
+        background-color: var(--bg_clr);
+        border: var(--border);
+        border-radius: .25rem;
+        min-height: 2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        padding: .75rem;
+    }
+
+    .head {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        font-size: larger;
+        color: var(--head_clr);
+        font-weight: bold;
+        font-variant-caps: all-petite-caps;
+    }
+</style>
