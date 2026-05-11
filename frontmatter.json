@@ -1,0 +1,109 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+
+  "frontMatter.taxonomy.fieldGroups": [
+    {
+      "id": "QnA",
+      "fields": [
+        {
+          "title": "Question",
+          "name": "question",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "title": "Answer",
+          "name": "answer",
+          "type": "string",
+          "required": true
+        }
+      ]
+    }
+  ],
+
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "blog",
+      "previewPath": "'blog'",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "name": "title",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "pubDate",
+          "type": "datetime",
+          "default": "{{now}}",
+          "required": true
+        },
+        {
+          "name": "updatedDate",
+          "type": "datetime",
+          "default": "{{now}}"
+        },
+        {
+          "name": "heroImage",
+          "type": "image",
+          "isPreviewImage": true,
+          "required": true
+        },
+        {
+          "name": "tldr",
+          "type": "string",
+          "wysiwyg": true
+        },
+        {
+          "title": "Q&A",
+          "name": "QnA",
+          "type": "block",
+          "fieldGroup": ["QnA"]
+        },
+        {
+          "title": "Video",
+          "name": "video",
+          "type": "fields",
+          "fields": [
+            {
+              "title": "Title",
+              "name": "title",
+              "type": "string",
+              "single": true,
+              "required": true
+            },
+            {
+              "title": "Video ID",
+              "name": "videoID",
+              "type": "string",
+              "single": true,
+              "required": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "blog",
+      "path": "[[workspace]]/src/content/blog",
+      "contentTypes": ["blog"]
+    }
+  ],
+  "frontMatter.content.publicFolder": {
+    "path": "public/",
+    "relative": true
+  }
+}

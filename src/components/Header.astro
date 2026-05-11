@@ -3,13 +3,29 @@ import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 import { Image } from 'astro:assets';
 import Logo from "../assets/botsuite_logo_white.png"
+import LogoSmaller from "../assets/botsuite_logo_letters_white.png"
 import { Icon } from "astro-icon/components"
 ---
 
 <header class="padded">
 	<nav>
 		<h2><a href="/">
-			<Image src={Logo} alt="hi" height={64} />
+			<!-- Desktop Logo -->
+                <Image 
+                    class="logo-full" 
+                    loading="eager" 
+                    src={Logo} 
+                    alt="BotSuite Logo" 
+                    height={64} 
+                />
+                <!-- Mobile Logo -->
+                <Image 
+                    class="logo-small" 
+                    loading="eager" 
+                    src={LogoSmaller} 
+                    alt="BotSuite Logo" 
+                    height={48} 
+                />
 		</a></h2>
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
@@ -29,6 +45,35 @@ import { Icon } from "astro-icon/components"
 	</nav>
 </header>
 <style>
+
+	.logo-small {
+        display: none;
+    }
+
+    .logo-full {
+        display: block;
+        width: auto;
+    }
+
+    @media (max-width: 720px) {
+        .logo-full {
+            display: none;
+        }
+        .logo-small {
+            display: block;
+            width: auto;
+        }
+        
+        .social-links {
+            display: none;
+        }
+    }
+
+    /* Keep images looking crisp */
+    img {
+        object-fit: contain;
+    }
+
 	header {
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
 		margin-bottom: 1rem;

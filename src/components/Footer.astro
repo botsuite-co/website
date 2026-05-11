@@ -5,23 +5,49 @@ import { Image } from 'astro:assets';
 import Logo from "../assets/botsuite_logo_white.png"
 ---
 
-<footer class="padded">
-	<div class="contact">
-		<Image src={Logo} alt="hi" height={64} />
-		<a href="mailto:hello@botsuite.co">hello@botsuite.co</a>
-	</div>
+<div class="container">
+	<footer class="padded">
+		<div class="contact">
+			<Image src={Logo} alt="hi" height={64} />
+			<a href="mailto:hello@botsuite.co">hello@botsuite.co</a>
+		</div>
+	
+		<ul>
+			<li><b>BotSuite Socials</b></li>
+			<li>
+				<a href="https://botsuite.co/join">Discord Server</a>
+			</li>
+			<li>
+				<a href="https://www.youtube.com/@botsuite">Youtube</a>
+			</li>
+			<li>
+				<a href="https://github.com/botsuite-co">GitHub</a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<b>Legal</b>
+			</li>
+			<li>
+				<a href="/privacy-policy">Privacy Policy</a>
+			</li>
+		</ul>
+	</footer>
+</div>
 
-	<ul>
-		<h2>hi</h2>
-		<h2>hi</h2>
-		<li>hi</li>
-	</ul>
-</footer>
 <style>
+
+	.container {
+		margin-top: 1.5rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--border);
+		background-color: color-mix(in srgb, var(--bg) 98%, rgba(255, 255, 255, 0.6));
+	}
 
 	.contact {
 		display: flex;
 		flex-direction: column;
+		margin-right: auto;
 
 		a {
 			color: rgb(var(--gray));
@@ -33,7 +59,19 @@ import Logo from "../assets/botsuite_logo_white.png"
 	footer {
 		padding: var(-padding);
 		display: flex;
-		justify-content: space-between;
 		color: rgb(var(--gray));
+		gap: 10%;
+	}
+
+	ul {
+		font-size: smaller;
+		list-style: none;
+		padding: 0;
+
+		a {
+			text-decoration: none;
+			color: inherit;
+			text-align: left;
+		}
 	}
 </style>

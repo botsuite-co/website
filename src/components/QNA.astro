@@ -1,0 +1,29 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { CollectionEntry } from 'astro:content';
+type Props = { questions: NonNullable<CollectionEntry<'blog'>['data']["QnA"]> };
+const { questions } = Astro.props;
+---
+
+<section class="faq-container">
+    <h2>Frequently Asked Questions</h2>
+    {questions.map(q => (
+        <details class="faq-item">
+            <summary> <Icon name={"mdi:comment-question"} /> <strong>{q.question}</strong></summary>
+            <div class="answer">
+                <p set:html={q.answer}></p>
+            </div>
+        </details>
+    ))}
+</section>
+
+<style>
+    .faq-container { margin: 2rem 0; }
+    .faq-item { 
+        padding: 1rem; 
+        border-bottom: 1px solid var(--border); 
+        cursor: pointer;
+    }
+    summary { list-style: none; outline: none; display: flex; align-items: center; gap: .5rem; }
+    .answer { padding-top: 10px; color: var(--text-main); }
+</style>
