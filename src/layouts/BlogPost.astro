@@ -8,6 +8,7 @@ import QNA from '../components/QNA.astro';
 import { type ReadTimeResults } from "reading-time"
 import { Icon } from 'astro-icon/components';
 import TwBanner from "../assets/tw_banner.png"
+import Favicon from "../assets/botsuite_logo_letters_white.png"
 
 type Props = CollectionEntry<'blog'>['data'] & { readingTime: ReadTimeResults };
 
@@ -32,7 +33,7 @@ const schemaDef = JSON.stringify({
 		"name": "BotSuite",
 		"logo": {
 			"@type": "ImageObject",
-			"url": new URL("/favicon.svg", Astro.url)
+			"url": Favicon.src
 		}
 	},
 	...(video && {
@@ -63,7 +64,7 @@ const faqSchema = JSON.stringify({
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} image={heroImage} />
 		<script is:inline type="application/ld+json" set:html={schemaDef} />
 		{QnA && <script is:inline type="application/ld+json" set:html={faqSchema} />}
 	</head>
