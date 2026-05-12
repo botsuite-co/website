@@ -32,6 +32,7 @@ const blog = defineCollection({
       .object({
         title: z.string(),
         videoID: z.string(),
+        published_at: z.coerce.date(),
       })
       .optional(),
   }),

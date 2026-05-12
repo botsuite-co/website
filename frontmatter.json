@@ -87,6 +87,12 @@
               "type": "string",
               "single": true,
               "required": true
+            },
+            {
+              "title": "Video Published At",
+              "name": "published_at",
+              "type": "datetime",
+              "required": true
             }
           ]
         }
@@ -103,7 +109,7 @@
     }
   ],
   "frontMatter.content.publicFolder": {
-    "path": "public/",
-    "relative": true
+    "path": "public",
+    "relative": false
   }
 }

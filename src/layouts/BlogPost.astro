@@ -40,6 +40,7 @@ const schemaDef = JSON.stringify({
 			"@type": "VideoObject",
 			"name": video.title,
 			"thumbnailUrl": `https://i.ytimg.com/vi/${video.videoID}/maxresdefault.jpg`,
+			"uploadDate": video.published_at.toISOString(),
 			"embedUrl": `https://www.youtube.com/embed/${video.videoID}`
 		}
 	})
