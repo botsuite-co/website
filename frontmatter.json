@@ -30,6 +30,11 @@
       "clearEmpty": true,
       "fields": [
         {
+          "name": "hidden",
+          "type": "boolean",
+          "required": false
+        },
+        {
           "name": "title",
           "type": "string",
           "single": true,
